@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "title":  "Aliens",
+        "year": "1986",
+        "rating": "8.5",
+        "genre": "science fiction",
+        "director": "James Cameron"
+    },
+    {
+        "id": "2",
+        "title":  "The Dark Knight",
+        "year": "2008",
+        "rating": "10",
+        "genre": "science fiction",
+        "director": "Cristopher Nolan"
+    }
+]
