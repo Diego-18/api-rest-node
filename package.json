@@ -11,13 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "express-validator": "^7.0.1",
+    "express": "^4.17.3",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.7",
     "underscore": "^1.13.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.22"
   }
 }
