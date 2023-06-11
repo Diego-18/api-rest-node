@@ -2,20 +2,26 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
-//settings
+// Settings
 app.set('port', process.env.PORT || 3000);
 app.set('json spaces', 2);
 
-//midelwares
+// Middleware
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//routes
+// Routes
 app.use('/api/movies', require('./routes/movies'));
 app.use('/api/users', require('./routes/users'));
 
-//starting the server
+// Error handling middleware
+app.use((err, req, res, next) => {
+	console.error(err);
+	res.status(500).json({ error: 'Internal Server Error' });
+});
+
+// Starting the server
 app.listen(app.get('port'), () => {
-    console.log('listening on port', app.get('port'));
+	console.log('Listening on port', app.get('port'));
 });

@@ -2,13 +2,20 @@ const { Router } = require('express');
 const fetch = require('node-fetch');
 const router = Router();
 
-/**
- *  External API consumed by this route
- */
-router.get('/', async (req, res) => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    const users = await response.json();
-    res.json(users);
+router.get('/', (req, res, next) => {
+	fetch('https://jsonplaceholder.typicode.com/users')
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error('Error en la solicitud a la API.');
+			}
+			return response.json();
+		})
+		.then((users) => {
+			res.json(users);
+		})
+		.catch((error) => {
+			next(error);
+		});
 });
 
 module.exports = router;
